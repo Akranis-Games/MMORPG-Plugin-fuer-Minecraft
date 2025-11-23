@@ -57,6 +57,32 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
 - **Benachrichtigungen**: Toasts bei Achievement-Freischaltung
 - **Broadcast**: Epic/Legendary Achievements werden serveröffentlich angekündigt
 
+### 🏰 Territory-Control
+- **Gilden-Territorien**: Beanspruche Land für deine Gilde
+- **8 Schutz-Flags**: PVP, Explosionen, Block-Break/Place, Container, Interaktionen, Mob-Spawning, Feuer
+- **5 Territory-Typen**: Normal, Festung, Handelsposten, Farm, Mine
+- **Level-System**: Upgrade Territorien von Level 1-10
+- **Trusted Players**: Vertraue Spielern Zugriff auf dein Territory
+- **Kosten-System**: 10 Gold pro Block + Upgrade-Kosten
+
+### 🗡️ Custom Items & Equipment-Sets
+- **6 Raritäten**: Common, Uncommon, Rare, Epic, Legendary, Mythic
+- **18 Stat-Typen**: Damage, Defense, Health, Mana, STR, DEX, INT, VIT, Luck, Crit, Dodge, Lifesteal, etc.
+- **7 Item-Typen**: Weapon, Helmet, Chestplate, Leggings, Boots, Accessory, Tool
+- **Equipment-Sets**: 2/4-Piece Boni (Dragon Knight, Shadow Assassin, Mystic Mage)
+- **10+ Vordefinierte Items**: Excalibur, Staff of Elements, legendäre Set-Items
+- **Random Loot Generator**: Level-basierte Item-Generierung
+
+### 🎭 Quest-NPC-System (Citizens Premium)
+- **Citizens-Integration**: Vollständige Integration mit Citizens Premium
+- **Quest-Geber NPCs**: NPCs bieten Quests an und nehmen sie entgegen
+- **Dialog-System**: Mehrstufige Dialoge mit Antwortoptionen
+- **Quest-Marker**: Visuelle Marker über NPCs (! für neue Quests, ? für Abgaben)
+- **Quest-Chains**: Automatische Folge-Quests nach Abschluss
+- **Level-Anforderungen**: NPCs prüfen Spieler-Level und abgeschlossene Quests
+- **Dynamische Dialoge**: 6 Dialog-Typen (Begrüßung, Angebot, Annahme, Fortschritt, Abschluss, Keine Quest)
+- **NPC-Verwaltung**: Admin-Commands zum Erstellen und Konfigurieren von Quest-NPCs
+
 ### ⚔️ Kampf-System
 - Custom Damage-Berechnung basierend auf Attributen
 - Kritische Treffer basierend auf Glück
@@ -84,6 +110,7 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
    - Java 17 oder höher
    - Optional: MySQL-Datenbank
    - **Empfohlen**: Vault + Economy-Plugin (z.B. EssentialsX)
+   - **Optional**: Citizens Premium (für Quest-NPCs)
 
 2. **Plugin kompilieren**:
    ```bash
@@ -117,6 +144,7 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
 | `/shop [create\|add\|manage]` | **Shop-System** | `/store`, `/laden` |
 | `/guide [get]` | **Interaktives Guidebook** | `/help`, `/hilfe` |
 | `/achievements [stats\|list]` | **Achievement-System** | `/achievement`, `/ach`, `/erfolge` |
+| `/questnpc <sub>` | **Quest-NPC-Verwaltung (Admin)** | `/npcquest`, `/qnpc` |
 
 ### Admin-Commands
 | Command | Beschreibung | Permission |
@@ -145,6 +173,16 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
 - `/achievements list` - Liste aller Achievements
 - `/achievements list <kategorie>` - Liste einer spezifischen Kategorie
   - Kategorien: `COMBAT`, `EXPLORATION`, `CRAFTING`, `SOCIAL`, `QUESTS`, `PROFESSIONS`, `COLLECTION`, `SPECIAL`
+
+## Quest-NPC Commands (Admin)
+- `/questnpc create <name> [typ]` - Erstellt einen Quest-NPC
+- `/questnpc remove <id>` - Entfernt einen Quest-NPC
+- `/questnpc assignquest <id> <quest-id>` - Ordnet Quest zu NPC zu
+- `/questnpc assigncompletion <id> <quest-id>` - Ordnet Quest-Abgabe zu
+- `/questnpc setdialog <id> <typ> <text>` - Setzt NPC-Dialog
+  - Typen: `greeting`, `offer`, `accept`, `progress`, `complete`, `noquest`
+- `/questnpc list` - Liste aller Quest-NPCs
+- `/questnpc info <id>` - Zeigt NPC-Details
 
 ## Permissions
 
@@ -258,14 +296,22 @@ Alle Spielernachrichten (mehrsprachig erweiterbar).
 
 ### Geplante Features
 - [ ] Erweiterte Skill-Effekte mit Partikeln
-- [ ] Quest-NPCs mit Citizens-Integration
-- [ ] Territory-Control für Gilden
-- [ ] Custom Items und Equipment-Sets
+- [x] **Quest-NPCs mit Citizens Premium Integration**
+  - [x] NPC-Quest-Geber erstellen
+  - [x] Interaktive Dialoge mit Quest-Annahme
+  - [x] Quest-Abgabe bei NPCs
+  - [x] Quest-Marker über NPCs (Hologramme)
+  - [x] Dynamische NPC-Spawns basierend auf Quest-Status
+  - [x] Citizens-API Integration für NPCs
+  - [x] Quest-Chain-NPCs (mehrstufige Quests)
+  - [x] Dialog-System mit Antwortoptionen
+- [x] Territory-Control für Gilden
+- [x] Custom Items und Equipment-Sets
 - [ ] Dungeons mit Instanzen
 - [ ] PvP-Arenen und Ranglisten
-- [ ] Achievement-System
+- [x] Achievement-System
 - [ ] PlaceholderAPI-Integration
-- [ ] Vault-Economy-Integration
+- [x] Vault-Economy-Integration
 
 ### API für Entwickler
 Das Plugin bietet Zugriff auf alle Manager-Klassen:
@@ -293,15 +339,6 @@ Entwickelt mit ❤️ für die Minecraft-Community
 **Version**: 1.0.0-SNAPSHOT  
 **Minecraft**: Paper 1.20.6+  
 **Java**: 17+
-
-
-Quest-System (reaktivieren + GUI-Bugs fixen)
-Achievement-System
-Territory-Control für Gilden
-Custom Items/Equipment-Sets
-Dungeons/Instanzen
-PvP-Arenen
-PlaceholderAPI-Integration
 
 
 🎯 Empfehlung für nächste Schritte:
