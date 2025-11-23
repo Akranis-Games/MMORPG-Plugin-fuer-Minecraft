@@ -40,6 +40,16 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
 - **Effect-System**: Buffs & Debuffs mit Partikel-Effekten
 - **Skill-Effects**: Visuelle Effekte für Skills (Level-Up, Kreis-Effekte)
 
+### ✨ Erweiterte Skill-Effekte mit Partikeln
+- **14 Effekt-Typen**: PROJECTILE, AOE, BEAM, SPIRAL, CIRCLE, SPHERE, WAVE, RAIN, TRAIL, AURA, HEAL, BUFF, DEBUFF, TELEPORT
+- **11 Animations-Typen**: INSTANT, FADE_IN, FADE_OUT, PULSE, ROTATE, EXPAND, CONTRACT, SPIRAL_UP, SPIRAL_DOWN, WAVE_OUTWARD, ORBIT
+- **10+ Vordefinierte Effekte**: Feuerball 🔥, Eisblitz ❄️, Blitz ⚡, Heilung 💚, Teleport 🌀, Schild 🛡️, Gift ☠️, Berserker 😡, Verstohlenheit 💨, Explosion 💥
+- **Skill-Integration**: Automatische Partikel-Effekte bei Skill-Nutzung
+- **Target-System**: Intelligente Ziel-Erkennung für Projektile und Strahlen
+- **Hit-Effekte**: Visuelle Treffer-Effekte bei Skill-Angriffen
+- **Sound-Effekte**: Passende Sounds für jeden Effekt
+- **Custom-Effekte**: Registriere eigene Partikel-Effekte via API
+
 ### 📖 Guidebook-System
 - **Interaktives Guide**: 7 Kapitel mit allen Features
 - **Guide-GUI**: Übersicht aller Kapitel
@@ -89,6 +99,20 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
 - Combat-Status mit Regenerations-Pause
 - XP-Gewinn durch Mob-Kills
 
+### 🔌 PlaceholderAPI-Integration
+- **40+ Placeholders**: Vollständige Integration für externe Plugins
+- **Basis-Stats**: %mmorpg_level%, %mmorpg_class%, %mmorpg_race%
+- **Kampf-Werte**: %mmorpg_health%, %mmorpg_mana%, %mmorpg_damage%, %mmorpg_defense%
+- **Attribute**: %mmorpg_str%, %mmorpg_dex%, %mmorpg_int%, %mmorpg_vit%, %mmorpg_luck%
+- **XP-System**: %mmorpg_xp%, %mmorpg_xp_to_next%, %mmorpg_xp_progress%
+- **Währung**: %mmorpg_gold% (Vault-Integration)
+- **Sozial**: %mmorpg_party_size%, %mmorpg_guild%, %mmorpg_guild_rank%
+- **Quests**: %mmorpg_active_quests%, %mmorpg_completed_quests%, %mmorpg_quest_<id>_progress%
+- **Berufe**: %mmorpg_profession_<name>_level%, %mmorpg_profession_<name>_xp%
+- **Achievements**: %mmorpg_achievements_unlocked%, %mmorpg_achievement_progress%
+- **Skills**: %mmorpg_skill_<id>_level%, %mmorpg_skill_<id>_unlocked%
+- **Kompatibilität**: Verwendbar in Scoreboards, TAB-Listen, Chat-Plugins, Holograms
+
 ### 💾 Datenbank
 - MySQL und SQLite Support
 - HikariCP Connection-Pooling
@@ -110,6 +134,7 @@ Ein vollständiges MMORPG-Plugin für Minecraft Paper Server (1.20.x - 1.21.x) m
    - Java 17 oder höher
    - Optional: MySQL-Datenbank
    - **Empfohlen**: Vault + Economy-Plugin (z.B. EssentialsX)
+   - **Empfohlen**: PlaceholderAPI (für externe Plugin-Integration)
    - **Optional**: Citizens Premium (für Quest-NPCs)
 
 2. **Plugin kompilieren**:
@@ -295,7 +320,15 @@ Alle Spielernachrichten (mehrsprachig erweiterbar).
 ## Entwicklung & Erweiterung
 
 ### Geplante Features
-- [ ] Erweiterte Skill-Effekte mit Partikeln
+- [x] **Erweiterte Skill-Effekte mit Partikeln**
+  - [x] 14 Effekt-Typen (PROJECTILE, AOE, BEAM, SPIRAL, etc.)
+  - [x] 11 Animations-Typen (SPIRAL_UP, PULSE, ROTATE, etc.)
+  - [x] 10 Vordefinierte Skill-Effekte
+  - [x] Automatische Skill-Integration
+  - [x] Target-System für Projektile
+  - [x] Hit-Effekte
+  - [x] Sound-Integration
+  - [x] Custom-Effekte-API
 - [x] **Quest-NPCs mit Citizens Premium Integration**
   - [x] NPC-Quest-Geber erstellen
   - [x] Interaktive Dialoge mit Quest-Annahme
@@ -310,7 +343,16 @@ Alle Spielernachrichten (mehrsprachig erweiterbar).
 - [ ] Dungeons mit Instanzen
 - [ ] PvP-Arenen und Ranglisten
 - [x] Achievement-System
-- [ ] PlaceholderAPI-Integration
+- [x] **PlaceholderAPI-Integration**
+  - [x] 40+ MMORPG-Placeholders
+  - [x] Level, Klasse, Rasse
+  - [x] Health, Mana, XP
+  - [x] Attribute (STR, DEX, INT, VIT, LUCK)
+  - [x] Gold, Party, Gilde
+  - [x] Quests, Achievements
+  - [x] Berufe (Level, XP, Fortschritt)
+  - [x] Skills, Combat-Stats
+  - [x] Dynamische Quest/Skill-Abfragen
 - [x] Vault-Economy-Integration
 
 ### API für Entwickler
